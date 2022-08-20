@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/cn/">
+  <link rel="canonical" href="http://yoursite-url/cn/rebbitmq/">
   <title>
     
-      either thin | or die
+      RabbitMq - either thin | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      简体中文
-    </span>
-    <select id="lang-select" data-canonical="cn/index.html">
-      
-      
-      <option value="en" >
-        English
-      </option>
-      
-      <option value="cn"  selected >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -374,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/categories_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/lml_bg.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/categories_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/lml_bg.jpg');
     }
 
     header.intro-header {
-       /*config*/
-        background-image: var(--intro-header-background-image-url-home);
-        /* background-image: url('/img/header_img/categories_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/lml_bg.jpg'); */
       
     }
 
@@ -408,10 +386,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>流科与忘甜</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">流科的博客</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#rabbit" title="rabbit">rabbit</a>
+              
+            </div>
+            <h1>RabbitMq</h1>
+            <h2 class="subheading">A succinct hexo theme...</h2>
+            <span class="meta">
+              Posted by 流科的博客 on
+              2022-08-20
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">2</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">646</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,353 +462,284 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <blockquote>
+</blockquote>
+<h1 id="消息队列中间件"><a href="#消息队列中间件" class="headerlink" title="消息队列中间件"></a>消息队列中间件</h1><h2 id="1-1RabbitMQ-简介"><a href="#1-1RabbitMQ-简介" class="headerlink" title="1. 1RabbitMQ 简介"></a>1. 1RabbitMQ 简介</h2><p>  消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等<br>  问题实现高性能,高可用，可伸缩和最终一致性，使用较多的消息队列有<br>  ActiveMQ,RabbitMQ,Kafka等。</p>
+<p>  以下介绍消息队列在实际应用中常用的使用场景：异步处理，应用解耦，流量削锋和消息<br>  通讯四个场景。</p>
+<h3 id="1-2-什么是RabbitMQ"><a href="#1-2-什么是RabbitMQ" class="headerlink" title="1.2 什么是RabbitMQ"></a>1.2 什么是RabbitMQ</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ是一个由Erlang语言开发的AMQP的开源实现。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>  AMQP：Advanced Message Queue，高级消息队列协议.它是应用层协议的一个开放标<br>  准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产<br>  品、开发语言等条件的限制。</p>
+</blockquote>
+<p>  RabbitMQ最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展<br>  性、高可用性等方面表现不俗。具体特点包括：</p>
+<h4 id="1-可靠性（Reliability）"><a href="#1-可靠性（Reliability）" class="headerlink" title="1.可靠性（Reliability）"></a>1.可靠性（Reliability）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</span><br></pre></td></tr></table></figure>
+<h4 id="2-灵活的路由（Flexible-Routing）"><a href="#2-灵活的路由（Flexible-Routing）" class="headerlink" title="2.灵活的路由（Flexible Routing）"></a>2.灵活的路由（Flexible Routing）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在消息进入队列之前，通过 Exchange 来路由消息的。对于典型的路由功能，RabbitMQ</span><br><span class="line">已经提供了一些内置的 Exchange 来实现。针对更复杂的路由功能，可以将多个Exchange</span><br><span class="line">绑定在一起，也通过插件机制实现自己的 Exchange。</span><br></pre></td></tr></table></figure>
+<h4 id="3-消息集群（Clustering）"><a href="#3-消息集群（Clustering）" class="headerlink" title="3.消息集群（Clustering）"></a>3.消息集群（Clustering）</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 <span class="keyword">Broker </span>。</span><br></pre></td></tr></table></figure>
+<h4 id="4-高可用（Highly-Available-Queues）"><a href="#4-高可用（Highly-Available-Queues）" class="headerlink" title="4.高可用（Highly Available Queues）"></a>4.高可用（Highly Available Queues）</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</span><br></pre></td></tr></table></figure>
+<h4 id="5-多种协议（Multi-protocol）"><a href="#5-多种协议（Multi-protocol）" class="headerlink" title="5.多种协议（Multi-protocol）"></a>5.多种协议（Multi-protocol）</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 <span class="keyword">Broker </span>。</span><br></pre></td></tr></table></figure>
+<h4 id="6-多语言客户端（Many-Clients）"><a href="#6-多语言客户端（Many-Clients）" class="headerlink" title="6.多语言客户端（Many Clients）"></a>6.多语言客户端（Many Clients）</h4><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ 几乎支持所有常用语言，比如 Java、.<span class="built_in">NET</span>、Ruby 等等。</span><br></pre></td></tr></table></figure>
+<h4 id="7-管理界面（Management-UI）"><a href="#7-管理界面（Management-UI）" class="headerlink" title="7.管理界面（Management UI）"></a>7.管理界面（Management UI）</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息<span class="keyword">Broker </span>的许多方</span><br><span class="line">面。</span><br></pre></td></tr></table></figure>
+<h4 id="8-跟踪机制（Tracing）"><a href="#8-跟踪机制（Tracing）" class="headerlink" title="8.跟踪机制（Tracing）"></a>8.跟踪机制（Tracing）</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</span><br></pre></td></tr></table></figure>
+<h4 id="9-插件机制（Plugin-System）"><a href="#9-插件机制（Plugin-System）" class="headerlink" title="9.插件机制（Plugin System）"></a>9.插件机制（Plugin System）</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">RabbitMQ</span> 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-架构图与主要概念"><a href="#1-3-架构图与主要概念" class="headerlink" title="1.3 架构图与主要概念"></a><strong>1.3</strong> <strong>架构图与主要概念</strong></h2><h3 id="1-3-1-构架图"><a href="#1-3-1-构架图" class="headerlink" title="1.3.1 构架图"></a>1.3.1 构架图</h3><p><img src="D:\Blog\blog\source\img\avatar\rabbit.jpg" alt=""></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/cn/我的文档/" data-toggle="tooltip" data-placement="top" title="lsk 博主简介">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=RabbitMq&body=Hi,I found this website and thought you might like it http://yoursite-url/cn/rebbitmq/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Sat Aug 20 2022 00:00:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">消息队列中间件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-1RabbitMQ-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1. 1RabbitMQ 简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-%E4%BB%80%E4%B9%88%E6%98%AFRabbitMQ"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">1.2 什么是RabbitMQ</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-%E5%8F%AF%E9%9D%A0%E6%80%A7%EF%BC%88Reliability%EF%BC%89"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">1.可靠性（Reliability）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-%E7%81%B5%E6%B4%BB%E7%9A%84%E8%B7%AF%E7%94%B1%EF%BC%88Flexible-Routing%EF%BC%89"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">2.灵活的路由（Flexible Routing）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-%E6%B6%88%E6%81%AF%E9%9B%86%E7%BE%A4%EF%BC%88Clustering%EF%BC%89"><span class="toc-nav-number">1.1.1.3.</span> <span class="toc-nav-text">3.消息集群（Clustering）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-%E9%AB%98%E5%8F%AF%E7%94%A8%EF%BC%88Highly-Available-Queues%EF%BC%89"><span class="toc-nav-number">1.1.1.4.</span> <span class="toc-nav-text">4.高可用（Highly Available Queues）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#5-%E5%A4%9A%E7%A7%8D%E5%8D%8F%E8%AE%AE%EF%BC%88Multi-protocol%EF%BC%89"><span class="toc-nav-number">1.1.1.5.</span> <span class="toc-nav-text">5.多种协议（Multi-protocol）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#6-%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88Many-Clients%EF%BC%89"><span class="toc-nav-number">1.1.1.6.</span> <span class="toc-nav-text">6.多语言客户端（Many Clients）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#7-%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2%EF%BC%88Management-UI%EF%BC%89"><span class="toc-nav-number">1.1.1.7.</span> <span class="toc-nav-text">7.管理界面（Management UI）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#8-%E8%B7%9F%E8%B8%AA%E6%9C%BA%E5%88%B6%EF%BC%88Tracing%EF%BC%89"><span class="toc-nav-number">1.1.1.8.</span> <span class="toc-nav-text">8.跟踪机制（Tracing）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#9-%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6%EF%BC%88Plugin-System%EF%BC%89"><span class="toc-nav-number">1.1.1.9.</span> <span class="toc-nav-text">9.插件机制（Plugin System）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-3-%E6%9E%B6%E6%9E%84%E5%9B%BE%E4%B8%8E%E4%B8%BB%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.3 架构图与主要概念</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-3-1-%E6%9E%84%E6%9E%B6%E5%9B%BE"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">1.3.1 构架图</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
+
+
+      <!-- Sidebar Container -->
+      <div class="
                 col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-      <!-- Main Content -->
-
-
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/rebbitmq/">
-    <h2 class="post-title">
-      RabbitMq
-    </h2>
-    <h3 class="post-subtitle">
-      A succinct hexo theme...
-    </h3>
-    <div class="post-content-preview">
-      
-
-消息队列中间件1. 1RabbitMQ 简介  消息队列中间件是分布式系统中重要的组件，主要解决应用耦合，异步消息，流量削锋等  问题实现高性能,高可用，可伸缩和最终一致性，使用较多的消息队列有  ActiveMQ,RabbitMQ,Kafka等。
-  以下介绍消息队列在实际应用中常用的使用场景：异步处理，应用解耦，流量削锋和消息  通讯四个场景。
-1.2 什么是RabbitMQ1Rab......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 流科的博客 on
-    2022-08-20
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#rabbit" title="rabbit">rabbit</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/我的文档/">
-    <h2 class="post-title">
-      lsk 博主简介
-    </h2>
-    <h3 class="post-subtitle">
-      A succinct hexo theme...
-    </h3>
-    <div class="post-content-preview">
-      
-这是我博客第一个文档
-
-地址河北邯郸
-博主妹妹的介绍laq 就是个不懂事的小笨蛋
-快速开始我的人生在这刚刚开始
-安装 Node.js 和 Git123#For Macbrew install nodebrew install git
-
-Windows：下载 &amp; 安装 Node.js。-&gt; Node.js
-Windows：下载 &amp; 安装 Git。-&gt; Git
-
-安......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 流科的博客 on
-    2022-08-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife">Hexo-Theme-LiveMyLife</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/cn/Hexo-Theme-LiveMyLife/">
-    <h2 class="post-title">
-      Hexo-Theme-LiveMyLife
-    </h2>
-    <h3 class="post-subtitle">
-      A succinct hexo theme...
-    </h3>
-    <div class="post-content-preview">
-      
-移植 Hux Blog 的主题，感谢 Huxpro 设计了如此完美的主题。
-由 Vincent 创建的 LiveMyLife 的主题修改来源 YenYuHsuan，参考主题 dusign、Utone，感谢 dusign、Utone。
-
-仓库Github 仓库地址：https://github.com/V-Vincen/hexo-theme-livemylifeGitee 仓库地址：http......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 流科的博客 on
-    2020-04-17
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife">Hexo-Theme-LiveMyLife</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-
-  <!-- Pager -->
-  <ul class="pager">
-    
-    
-  </ul>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">来访者</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#rabbit" title="rabbit">rabbit</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">特色标签</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#rabbit" title="rabbit" rel="1">rabbit</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">关于自己</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/wx.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Fat people have no future, either thin or die...</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/V-Vincen">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-      <li>
-        <a target="_blank" href="https://twitter.com/V_Vincen_">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-      <li>
-        <a target="_blank" href="https://www.instagram.com/v_vincen_">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/WVincen">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">最近博文</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="rebbitmq/">
-      <li>RabbitMq</li>
-    </a>
-    
-    <a href="%E6%88%91%E7%9A%84%E6%96%87%E6%A1%A3/">
-      <li>lsk 博主简介</li>
-    </a>
-    
-    <a href="Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<h5><a href="/">链友</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://v-vincen.life/" target="_blank">V_Vincen</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
+        
         <hr>
-    
-        <!-- Archives -->
+        <h5>链友</h5>
+        <ul class="list-inline">
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#rabbit">
-      <li>rabbit</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">V_Vincen</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
