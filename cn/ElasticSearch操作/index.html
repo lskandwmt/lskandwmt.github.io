@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/cn/我的文档/">
+  <link rel="canonical" href="http://yoursite-url/cn/ElasticSearch操作/">
   <title>
     
-      lsk 博主简介 - either thin | or die
+      ElasticSearch - either thin | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -389,14 +389,14 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife">Hexo-Theme-LiveMyLife</a>
+              <a class="tag" href="/tags/#ElasticSearch" title="ElasticSearch">ElasticSearch</a>
               
             </div>
-            <h1>lsk 博主简介</h1>
+            <h1>ElasticSearch</h1>
             <h2 class="subheading">A succinct hexo theme...</h2>
             <span class="meta">
               Posted by 流科的博客 on
-              2022-08-01
+              2020-04-17
             </span>
 
 
@@ -404,11 +404,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">11</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">60</span> In Total
+              Words <span class="post-count">2.9k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,19 +470,173 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <blockquote>
-<p>这是我博客第一个文档</p>
-</blockquote>
-<h2 id="地址">地址</h2>
-<p>河北邯郸</p>
-<h3 id="博主妹妹的介绍">博主妹妹的介绍</h3>
-<p>laq 就是个不懂事的小笨蛋</p>
+        <h1>第14章 ElasticSearch数据增量</h1>
+<h2 id="本章任务">本章任务</h2>
+<ul>
+<li>了解Logstash相关概念</li>
+<li>在各平台下安装并使用Logstash</li>
+<li>熟练使用Logstash配置实现数据增量</li>
+<li>了解Grok表达式语法</li>
+</ul>
+<h2 id="本章目标">本章目标</h2>
+<ul>
+<li>了解Logstash相关概念</li>
+<li>在各平台下安装并使用Logstash</li>
+<li>熟练使用Logstash配置实现数据增量</li>
+<li>了解Grok表达式语法</li>
+</ul>
+<h2 id="本章简介">本章简介</h2>
+<p>Logstash的作用就是一个数据收集器，可以将各种渠道的数据通过它收集解析之后格式化输出到ElasticSearch。最后再由Kiabana进行数据汇总，分析和搜索。</p>
+<h2 id="预习作业">预习作业</h2>
+<p>请按照以下步骤预习本章内容：</p>
+<ol>
+<li>阅读、学习本章内容。</li>
+<li>标注出本章看不懂或存在疑惑的部分。</li>
+<li>整理、记录学习中的问题。</li>
+<li>熟记本章的英文单词。</li>
+</ol>
+<h2 id="技术内容">技术内容</h2>
+<h3 id="14-1-Logstash">14.1 Logstash</h3>
+<h4 id="14-1-1-什么是Logstash">14.1.1 什么是Logstash</h4>
+<p>Logstash 是免费且开放的服务器端数据处理管道，能够从多个来源采集数据，转换数据，然后将数据发送到您最喜欢的“存储库”中。Logstash具备以下特点：</p>
+<ul>
+<li><strong>输入、过滤和输出</strong></li>
+</ul>
+<p>Logstash 能够动态地采集、转换和传输数据，不受格式或复杂度的影响。利用 Grok 从非结构化数据中派生出结构，从 IP 地址解码出地理坐标，匿名化或排除敏感字段，并简化整体处理过程。</p>
+<ul>
+<li><strong>采集各种样式、大小和来源的数据</strong></li>
+</ul>
+<p>数据往往以各种各样的形式，或分散或集中地存在于很多系统中。Logstash 支持各种输入选择，可以同时从众多常用来源捕捉事件。能够以连续的流式传输方式，轻松地从您的日志、指标、Web 应用、数据存储以及各种 AWS 服务采集数据。</p>
+<ul>
+<li><strong>实时解析和转换数据</strong></li>
+</ul>
+<p>数据从源传输到存储库的过程中，Logstash 过滤器能够解析各个事件，识别已命名的字段以构建结构，并将它们转换成通用格式，以便进行更强大的分析和实现商业价值。</p>
+<p>Logstash 能够动态地转换和解析数据，不受格式或复杂度的影响：</p>
+<ul>
+<li>
+<p>利用 Grok 从非结构化数据中派生出结构</p>
+</li>
+<li>
+<p>从 IP 地址破译出地理坐标</p>
+</li>
+<li>
+<p>将 PII 数据匿名化，完全排除敏感字段</p>
+</li>
+<li>
+<p>简化整体处理，不受数据源、格式或架构的影响</p>
+</li>
+<li>
+<p><strong>选择您的存储库，导出您的数据</strong></p>
+</li>
+</ul>
+<p>尽管 Elasticsearch 是我们的首选输出方向，能够为我们的搜索和分析带来无限可能，但它并非唯一选择。Logstash 提供众多输出选择，您可以将数据发送到您要指定的地方，并且能够灵活地解锁众多下游用例。</p>
+<h3 id="14-2-Logstash安装">14.2 Logstash安装</h3>
+<h4 id="14-2-1-基于Docker安装Logstash">14.2.1 基于Docker安装Logstash</h4>
+<ol>
+<li>拉取镜像</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull logstash:7.16.3</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建容器并启动</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name logstash logstash:7.16.3</span><br></pre></td></tr></table></figure>
+<h4 id="14-2-2-基于Linux安装Logstash">14.2.2 基于Linux安装Logstash</h4>
+<ol>
+<li>通过官网下载Logstash安装包。</li>
+</ol>
 <blockquote>
-<p><strong>XA-blissful</strong></p>
+<p>Logstash下载地址：<a target="_blank" rel="noopener" href="https://artifacts.elastic.co/downloads/logstash/logstash-7.16.3-linux-x86_64.tar.gz">https://artifacts.elastic.co/downloads/logstash/logstash-7.16.3-linux-x86_64.tar.gz</a></p>
 </blockquote>
-<p>上述是博主妹妹的微信</p>
-<h2 id="快速开始">快速开始</h2>
-<p>我的人生在这刚刚开始</p>
+<ol>
+<li>将压缩包上传并也解压至指定目录。</li>
+<li>启动测试。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据自己解压的路径进行操作</span></span><br><span class="line">cd /usr/local/logstash</span><br><span class="line"></span><br><span class="line">./logstash -e &#x27;input &#123; stdin &#123; &#125; &#125; output &#123; stdout &#123;&#125; &#125;&#x27;</span><br></pre></td></tr></table></figure>
+<img src="https://gitee.com/loveelsa_978/pic-go/raw/master/202202081420339.png" style="zoom:80%;" />
+<p style="text-align:center;font-size:12px">图14.1 CentOS7中运行Logstash</p>
+<h4 id="14-2-3-基于Windows安装Logstash">14.2.3 基于Windows安装Logstash</h4>
+<ol>
+<li>通过官网下载Logstash安装包。</li>
+</ol>
+<blockquote>
+<p>Logstash下载地址： <a target="_blank" rel="noopener" href="https://artifacts.elastic.co/downloads/logstash/logstash-7.16.3-windows-x86_64.zip">https://artifacts.elastic.co/downloads/logstash/logstash-7.16.3-windows-x86_64.zip</a></p>
+</blockquote>
+<ol>
+<li>解压至指定目录。（<strong>注意目录中不要出现中文和空格等特殊字符</strong>）</li>
+<li>启动测试。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入logstash/bin目录运行如下命令</span></span><br><span class="line">logstash.bat -e &quot;input &#123; stdin &#123; &#125; &#125; output &#123; stdout &#123;&#125; &#125;&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="14-3-了解Logstash工作原理">14.3 了解Logstash工作原理</h3>
+<p>Logstash 内部是管道的方式进行数据的搜集、处理、输出。在 Logstash 中，包括了三个阶段：Input–&gt;Filter–&gt;Output。每个阶段都由很多的插件配合工作。每个阶段也可以指定多种方式。正是由于这种插件方式，使得Logstash变得易于扩展和定制。</p>
+<img src="https://gitee.com/loveelsa_978/pic-go/raw/master/202202081444194.png" alt="在这里插入图片描述" style="zoom:80%;" />
+<p style="text-align:center;font-size:12px">图14.2 Logstash工作原理图</p>
+<h4 id="14-3-1-配置Logstash">14.3.1 配置Logstash</h4>
+<p>要配置 Logstash，您需要创建一个配置文件，该文件指定要使用的插件以及每个插件的设置。  您可以在配置中引用事件字段，并在事件满足特定条件时使用条件来处理事件。  当你运行 logstash 时，你使用 <code>-f </code>来指定你的配置文件。</p>
+<ul>
+<li>Input</li>
+</ul>
+<p>数据各式各样，数据的来源也是大相径庭，但是有价值的数据我们都要从各个服务器中收集起来，这就需要用到Logstash中的Input。</p>
+<img src="https://gitee.com/loveelsa_978/pic-go/raw/master/202202081447660.png" />
+<p style="text-align:center;font-size:12px">图14.3 Input插件示意图</p>
+<ul>
+<li>Filter</li>
+</ul>
+<p>Logstash涉及提取数据主要是下面几个：</p>
+<ol>
+<li>date过滤器：获得时间格式的数据</li>
+<li>extractnumbers过滤器：从字符串中提取数字</li>
+<li>grok过滤器：使用grok格式提取数据中的指定内容</li>
+</ol>
+<ul>
+<li>Output</li>
+</ul>
+<p>Output插件是经过了Input，然后过滤结构化数据之后，接下来我们需要借助Output传到我们想传到的地方。Output相当于一个输出管道。</p>
+<p>输出的目的地可以有很多，我们可以将采集到的数据输出到<code>控制台</code>，<code>文件</code>，<code>ElasticSearch</code>，<code>redis</code>，<code>MQ</code>等等。</p>
+<h4 id="14-3-2-示例">14.3.2 示例</h4>
+<ol>
+<li><strong>保存MQ中的数据到Elasticsearch</strong></li>
+</ol>
+<p>我们来模拟这样一个场景：我们将各个程序请求访问过程中的日志统一记录在RabbmitMQ这样的消息中间件中，由于MQ这样的消息数据是瞬时数据，所以我们使用Logstash将数据持久化进入到Elasticsearch中方便存储及数据检索。</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">input&#123;</span><br><span class="line">	<span class="keyword">rabbitmq</span> &#123;</span><br><span class="line">		<span class="attr">host</span> =&gt; <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">		<span class="attr">port</span> =&gt; <span class="string">&quot;5672&quot;</span></span><br><span class="line">		<span class="attr">user</span> =&gt; <span class="string">&quot;admin&quot;</span></span><br><span class="line">		<span class="attr">password</span> =&gt; <span class="string">&quot;admin&quot;</span></span><br><span class="line">		<span class="attr">queue</span> =&gt; <span class="string">&quot;mylog&quot;</span></span><br><span class="line">		<span class="attr">durable</span> =&gt; <span class="keyword">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output&#123;</span><br><span class="line">	<span class="keyword">elasticsearch</span> &#123;</span><br><span class="line">		<span class="attr">hosts</span> =&gt; [<span class="string">&quot;127.0.0.1:9200&quot;</span>]</span><br><span class="line">		<span class="attr">index</span> =&gt; <span class="string">&quot;log-%&#123;+YYYYMMdd&#125;&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>实现数据库数据到ElasticSearch的自动增量</li>
+</ol>
+<p>在电商项目中，商品数据通常都是保存在关系型数据库中，网站商品数量巨大，并且会随着时间的推移增加更多的商品数据，这样不利于用户数据检索。针对这种情况我们同样可以使用Logstash实现数据库的自动增量。</p>
+<p><strong>全量更新</strong></p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">input</span> &#123;</span><br><span class="line">	jdbc &#123;</span><br><span class="line">		<span class="attr">jdbc_connection_string</span> =&gt; <span class="string">&quot;jdbc:mysql://localhost:3306/dm_item?useUnicode=true&amp;characterEncoding=UTF-8&quot;</span></span><br><span class="line">		<span class="attr">jdbc_user</span> =&gt; <span class="string">&quot;root&quot;</span></span><br><span class="line">		<span class="attr">jdbc_password</span> =&gt; <span class="string">&quot;t879759871&quot;</span></span><br><span class="line">		<span class="attr">jdbc_driver_library</span> =&gt; <span class="string">&quot;C:\apps\logstash\config\jdbc\mysql-connector-java-8.0.27.jar&quot;</span></span><br><span class="line">		<span class="attr">jdbc_driver_class</span> =&gt; <span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span></span><br><span class="line">		<span class="attr">jdbc_paging_enabled</span> =&gt; <span class="string">&quot;true&quot;</span></span><br><span class="line">		<span class="attr">jdbc_page_size</span> =&gt; <span class="string">&quot;50000&quot;</span></span><br><span class="line">		<span class="attr">statement_filepath</span> =&gt; <span class="string">&quot;C:\apps\logstash\config\jdbc\dm_item.sql&quot;</span></span><br><span class="line">		<span class="attr">schedule</span> =&gt; <span class="string">&quot;* * * * *&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output&#123;</span><br><span class="line">	<span class="keyword">elasticsearch</span> &#123;</span><br><span class="line">		<span class="attr">hosts</span> =&gt; [<span class="string">&quot;127.0.0.1:9200&quot;</span>]</span><br><span class="line">		<span class="attr">index</span> =&gt; <span class="string">&quot;item&quot;</span></span><br><span class="line">		<span class="attr">document_id</span> =&gt; <span class="string">&quot;%&#123;id&#125;&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码我们就可以实现Logstash对数据库数据的全量更新了。</p>
+<p>数据同步的过程并不是时时刻刻进行监控更新数据的，而是通过属性schedule进行定时任务更新的，示例中的代码表示<code>每分钟更新一次</code>，这样操作的问题是无论Elasticsearch中是否已经存在同步过的数据，下次依然会进行同步，这样一来就导致数据出现了冗余，那么应该如何避免这个问题呢？</p>
+<p><strong>增量更新</strong></p>
+<p>要解决刚才提出的问题，我们首先要明确思路，如何保证数据的一致性，已经存在于数据库的数据不进行重复增量，已存在的数据要根据实际情况进行增删改。那么有没有这样一个字段可以满足需求呢？我们可以通过一个字段来进行标识以保证数据的一致性。MySQL建表时我们可以添加两个日期字段（createdTime，updatedTime）以实现对数据日期操作的自动维护，这样一来我们就可以使用updatedTime来作为数据增量的依据。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">input&#123;</span><br><span class="line">	<span class="comment"># 省略其余字段</span></span><br><span class="line">    jdbc&#123;</span><br><span class="line">    	<span class="comment"># 增量判断字段</span></span><br><span class="line">        tracking_column =&gt; <span class="string">&quot;updatedtime&quot;</span></span><br><span class="line">        <span class="comment"># 记录最后一次增量信息</span></span><br><span class="line">        record_last_run =&gt; <span class="literal">true</span></span><br><span class="line">        <span class="comment"># 信息记录文件</span></span><br><span class="line">        last_run_metadata_path =&gt; <span class="string">&quot;C:\apps\logstash\config\jdbc\.logstash_jdbc_last_run&quot;</span></span><br><span class="line">        <span class="comment"># 时区设置</span></span><br><span class="line">        jdbc_default_timezone =&gt; <span class="string">&quot;Asia/Shanghai&quot;</span></span><br><span class="line">        tracking_column_type =&gt; <span class="string">&quot;timestamp&quot;</span></span><br><span class="line">	    clean_run =&gt; <span class="literal">false</span></span><br><span class="line">	    use_column_value =&gt; <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>tracking_column</strong> 表示增量判断字段，该值不支持驼峰命名</li>
+<li><strong>record_last_run</strong> 最后一次的增量信息记录，配合last_run_metadata_path使用</li>
+<li><strong>last_run_metadata_path</strong> 信息记录的文件</li>
+<li><strong>tracking_column_type</strong> 增量记录字段类型</li>
+<li><strong>use_column_value</strong> 配合sql语句中的 <code>:sql_last_value</code>使用</li>
+</ul>
+<p>通过上面的代码我们可以实现数据的增量更新功能，实现的原理就是将定时任务中最后一次记录的时间保存在文件中，下次的查询语句通过<code>:sql_last_value</code>作为判断条件，凡是数据的最后修改时间大于记录的时间，则会进行增量更新。</p>
+<h4 id="14-3-3-Grok">14.3.3 Grok</h4>
+<p>grok是一个十分强大的Logstash filter插件，他可以通过正则解析任意文本，将非结构化日志数据弄成结构化和方便查询的结构。他是目前Logstash 中解析非结构化日志数据最好的方式。</p>
+<p>grok的语法规则是：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">%&#123;语法:语义&#125;</span></span><br></pre></td></tr></table></figure>
+<p>“语法”指的是匹配的模式。例如使用NUMBER模式可以匹配出数字，IP模式则会匹配出127.0.0.1这样的IP地址。需要注意的是，grok严格的使用与之匹配的正则表达式，如果使用错误的内容，其匹配结果可能不是设计的内容，可能就无法被grok解析，并且打上<code>_grokparsefailure</code>的标签。</p>
+<p>grok位于正则表达式之上，所以任何正则表达式在grok中都是有效的。语法表达式可以参考以下网站：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/legacy/grok-patterns">https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/legacy/grok-patterns</a></p>
+</blockquote>
+<p>一般系统或服务生成的日志都是一大长串。每个字段之间用空格分隔，Logstash在获取日志是整个一串获取，如果把日志中每个字段代表的意思分割开来在传给elasticsearch。这样呈现出来的数据更加清晰，而且也能让kibana更方便的绘制图形。</p>
+<blockquote>
+<p>192.168.10.97 - - [19/Jul/2016:16:28:52 +0800] “GET / HTTP/1.1” 200 23 “-” “Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36”</p>
+</blockquote>
+<p>以上是一段apache日志，此时我们可以使用Grok将字段解析并拆分。</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">filter</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> [<span class="keyword">type</span>] == &quot;apache&quot; &#123;</span><br><span class="line">    grok &#123;</span><br><span class="line">      match =&gt; [&quot;message&quot; =&gt; &quot;%&#123;<span class="type">IPORHOST</span>:addre&#125; %&#123;<span class="type">USER</span>:ident&#125; %&#123;<span class="type">USER</span>:auth&#125; \[%&#123;<span class="type">HTTPDATE</span>:timestamp&#125;\] \&quot;%&#123;<span class="type">WORD</span>:http_method&#125; %&#123;<span class="type">NOTSPACE</span>:request&#125; <span class="type">HTTP</span>/%&#123;<span class="type">NUMBER</span>:httpversion&#125;\&quot; %&#123;<span class="type">NUMBER</span>:status&#125; (?:%&#123;<span class="type">NUMBER</span>:bytes&#125;|-) \&quot;(?:%&#123;<span class="type">URI</span>:http_referer&#125;|-)\&quot; \&quot;%&#123;<span class="type">GREEDYDATA</span>:<span class="type">User_Agent</span>&#125;\&quot;&quot;]</span><br><span class="line">      remove_field =&gt; [<span class="string">&quot;message&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    date &#123;</span><br><span class="line">      match =&gt; [ <span class="string">&quot;timestamp&quot;</span>, <span class="string">&quot;dd/MMM/YYYY:HH:mm:ss Z&quot;</span> ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的配置我们可以得到拆分之后的结果，例如：<code>%&#123;IPORHOST:addre&#125;  --&gt; 192.168.10.197  </code>。</p>
+<p>当然如果上述功能无法满足某些特定业务需求，我们也可以使用自定义模式。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?<span class="tag">&lt;<span class="name">field_name</span>&gt;</span>正则表达式)</span><br></pre></td></tr></table></figure>
+<p>例如，后缀日志有一个 <code>queue_id</code>这是一个 10 或 11 个字符 十六进制值。  我可以像这样轻松捕获：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">(?<span class="tag">&lt;<span class="name">query_id</span>&gt;</span>[0-9A-F]</span><span class="template-variable">&#123;10,11&#125;</span><span class="language-xml">)</span></span><br></pre></td></tr></table></figure>
 
 
         <hr>
@@ -490,12 +644,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/cn/rebbitmq/" data-toggle="tooltip" data-placement="top" title="RabbitMq">&larr; Previous Post</a>
+            <a href="/cn/我的文档/" data-toggle="tooltip" data-placement="top" title="lsk 博主简介">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/cn/ElasticSearch操作/" data-toggle="tooltip" data-placement="top" title="ElasticSearch">Next Post &rarr;</a>
+            <a href="/cn/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -544,7 +698,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=lsk 博主简介&body=Hi,I found this website and thought you might like it http://yoursite-url/cn/我的文档/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=ElasticSearch&body=Hi,I found this website and thought you might like it http://yoursite-url/cn/ElasticSearch操作/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -579,7 +733,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Mon Aug 01 2022 02:34:17 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Fri Apr 17 2020 02:34:17 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -632,7 +786,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">地址</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8D%9A%E4%B8%BB%E5%A6%B9%E5%A6%B9%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">博主妹妹的介绍</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">快速开始</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第14章 ElasticSearch数据增量</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%AC%E7%AB%A0%E4%BB%BB%E5%8A%A1"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">本章任务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%AC%E7%AB%A0%E7%9B%AE%E6%A0%87"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">本章目标</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%AC%E7%AB%A0%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">本章简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%A2%84%E4%B9%A0%E4%BD%9C%E4%B8%9A"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">预习作业</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8A%80%E6%9C%AF%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">技术内容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#14-1-Logstash"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">14.1 Logstash</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-1-1-%E4%BB%80%E4%B9%88%E6%98%AFLogstash"><span class="toc-nav-number">1.5.1.1.</span> <span class="toc-nav-text">14.1.1 什么是Logstash</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#14-2-Logstash%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">14.2 Logstash安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-2-1-%E5%9F%BA%E4%BA%8EDocker%E5%AE%89%E8%A3%85Logstash"><span class="toc-nav-number">1.5.2.1.</span> <span class="toc-nav-text">14.2.1 基于Docker安装Logstash</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-2-2-%E5%9F%BA%E4%BA%8ELinux%E5%AE%89%E8%A3%85Logstash"><span class="toc-nav-number">1.5.2.2.</span> <span class="toc-nav-text">14.2.2 基于Linux安装Logstash</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-2-3-%E5%9F%BA%E4%BA%8EWindows%E5%AE%89%E8%A3%85Logstash"><span class="toc-nav-number">1.5.2.3.</span> <span class="toc-nav-text">14.2.3 基于Windows安装Logstash</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#14-3-%E4%BA%86%E8%A7%A3Logstash%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">14.3 了解Logstash工作原理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-3-1-%E9%85%8D%E7%BD%AELogstash"><span class="toc-nav-number">1.5.3.1.</span> <span class="toc-nav-text">14.3.1 配置Logstash</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-3-2-%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">1.5.3.2.</span> <span class="toc-nav-text">14.3.2 示例</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#14-3-3-Grok"><span class="toc-nav-number">1.5.3.3.</span> <span class="toc-nav-text">14.3.3 Grok</span></a></li></ol></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -655,7 +809,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife">Hexo-Theme-LiveMyLife</a>
+            <a class="tag" href="/tags/#ElasticSearch" title="ElasticSearch">ElasticSearch</a>
             
           </div>
         </section>
