@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite-url/categories/index.html</loc>
+    <loc>http://yoursite-url/tags/index.html</loc>
     
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/index.html</loc>
+    <loc>http://yoursite-url/categories/index.html</loc>
+    
+    <lastmod>2022-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/archive/index.html</loc>
     
     <lastmod>2022-08-20</lastmod>
     
@@ -91,19 +100,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://yoursite-url/archive/index.html</loc>
-    
-    <lastmod>2017-03-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://yoursite-url/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -111,21 +111,21 @@
   
   <url>
     <loc>http://yoursite-url/tags/ElasticSearch/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/tags/rabbit/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -134,21 +134,21 @@
   
   <url>
     <loc>http://yoursite-url/categories/ElasticSearch/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/categories/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/categories/rabbit/</loc>
-    <lastmod>2022-08-20</lastmod>
+    <lastmod>2022-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
