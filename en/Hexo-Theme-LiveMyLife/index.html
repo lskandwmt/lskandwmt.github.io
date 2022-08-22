@@ -247,9 +247,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -663,9 +663,13 @@ Gitee 仓库地址：<a target="_blank" rel="noopener" href="https://gitee.com/V
         <ul class="pager">
           
           <li class="previous">
-            <a href="/cn/MarkDown使用/" data-toggle="tooltip" data-placement="top" title="MarkDown使用连接">&larr; Previous Post</a>
+            <a href="/cn/我的文档/" data-toggle="tooltip" data-placement="top" title="lsk 博主简介">&larr; Previous Post</a>
           </li>
           
+          
+          <li class="next">
+            <a href="/cn/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
+          </li>
           
         </ul>
 
@@ -846,7 +850,7 @@ Gitee 仓库地址：<a target="_blank" rel="noopener" href="https://gitee.com/V
           </li>
           
           <li>
-            <a href="https://" target="_blank">小白</a>
+            <a href="https://rxxyandysfx.github.io" target="_blank">小白</a>
           </li>
           
         </ul>
@@ -1389,5 +1393,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

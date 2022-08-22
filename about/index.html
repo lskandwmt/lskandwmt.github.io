@@ -247,9 +247,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -540,11 +540,11 @@
   <div class="tags">
     
     
-    <a href="/tags/#ElasticSearch" title="ElasticSearch" rel="1">ElasticSearch</a>
-    
-    
-    
     <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="4">Hexo-Theme-LiveMyLife</a>
+    
+    
+    
+    <a href="/tags/#ElasticSearch" title="ElasticSearch" rel="1">ElasticSearch</a>
     
     
     
@@ -628,8 +628,8 @@
       <li>lsk 博主简介</li>
     </a>
     
-    <a href="../cn/ElasticSearch%E6%93%8D%E4%BD%9C/">
-      <li>ElasticSearch</li>
+    <a href="../en/Hexo-Theme-LiveMyLife/">
+      <li>Hexo-Theme-LiveMyLife</li>
     </a>
     
     <a href="../cn/Hexo-Theme-LiveMyLife/">
@@ -655,7 +655,7 @@
   
   <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
   
-  <li><a href="https://" target="_blank">小白</a></li>
+  <li><a href="https://rxxyandysfx.github.io" target="_blank">小白</a></li>
   
 </ul>
 
@@ -678,12 +678,12 @@
 <div class="widget">
   <ul>
     
-    <a href="/categories/#ElasticSearch">
-      <li>ElasticSearch</li>
-    </a>
-    
     <a href="/categories/#Hexo-Theme-LiveMyLife">
       <li>Hexo-Theme-LiveMyLife</li>
+    </a>
+    
+    <a href="/categories/#ElasticSearch">
+      <li>ElasticSearch</li>
     </a>
     
     <a href="/categories/#rabbit">
@@ -1188,5 +1188,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
